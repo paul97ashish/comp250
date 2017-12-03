@@ -106,18 +106,18 @@ public class HashLinkedList<K,V>{
         if (currNode == null) {
             return null;       
         }
-        else if (currNode.equals(getHead()) || size() == 1) {     //nodeToRemove is the head node of the list
+        else if (currNode.equals(getHead()) || size() == 1) {    
             return this.removeFirst();
         }
-        else {                                                                  //nodeToRemove is not the head of the list
+        else {                                                                  
             HashNode<K, V> prevNode = getPreviousNode(currNode);
             if (prevNode == null) {
-                System.out.println("logic error - in getPreviousNode()");
+                System.out.println("i see an error");
                 return null;        
             }
             prevNode.next = currNode.getNext();
             currNode.next = null;
-            size-- ;
+            this.size-- ;
             return currNode;
         }
 

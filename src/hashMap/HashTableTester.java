@@ -68,6 +68,7 @@ public class HashTableTester {
 				|| removedSong.getYear() != 1974 || retrievedSong != null) {
 			errors.append("Failed to remove song 'Fallen Angel'.\n");
 		}
+		System.out.println("numb of songs is " + songTable.size());
 
 		//   PUT MORE TESTS HERE.
 

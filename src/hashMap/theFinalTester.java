@@ -71,6 +71,7 @@ public class theFinalTester {
                         }
                     }
                 }
+                
         MyHashTable<String,Song> songTable;
         int numBuckets = 7;
         // Initialize the hash table.   Key will be the song title.
@@ -105,16 +106,16 @@ public class theFinalTester {
             errors.append("Failed to retrieve song 'Scream'.\n");
         }
                 
-                 Iterator iterator = songTable.iterator();
-                while(iterator.hasNext())
-                {
-                   HashNode<String, Song> song;
-                    song = (HashNode<String, Song>)iterator.next();
-                    System.out.print(song.getValue() + "\n");
-                }
+                 System.out.print(songTable.keys() + "\n");
 
         //   PUT MORE TESTS HERE.
                 
+                Song toChange = new Song("Fallen Angel", "Three Days Grace", 2015);
+                Song changed = songTable.get("Fallen Angel");
+                Song temp = songTable.put(toChange.getTitle(), toChange);
+                if (temp == null || !temp.getArtist().equals(changed.getArtist()) || temp.getYear() != changed.getYear()) errors.append("Failed to replace song 'Fallen Angel'.\n");
+                
+                songs.set(5, toChange);
                // Try to remove a song
                 int songRemoved =0;
                 Random rand = new Random();
@@ -138,13 +139,10 @@ public class theFinalTester {
                 
                 System.out.print("Songs Removed: " + songRemoved + "\n");
                 
-                iterator = songTable.iterator();
-                while(iterator.hasNext())
-                {
-                   HashNode<String, Song> song;
-                    song = (HashNode<String, Song>)iterator.next();
-                    System.out.print(song.getValue() + "\n");
-                }
+                System.out.println("number of songs: " + songTable.size());
+        System.out.println("number of buckets in hashtable: " + songTable.getNumBuckets());
+                
+               System.out.print(songTable.values() + "\n");
 
         // Display the test results
         System.out.println("---------------\nTEST 1 RESULTS:\n---------------\n");
@@ -158,4 +156,5 @@ public class theFinalTester {
     }
 
 }
+
 

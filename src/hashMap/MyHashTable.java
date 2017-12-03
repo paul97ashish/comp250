@@ -185,15 +185,17 @@ class MyHashTable<K, V> {
         }
         else {
             int index = this.hashFunction(key);
-            
+            this.entryCount--;
+
             if (this.isEmpty()) {
                 return null;
             }
             else if (this.size() == 1) {
                 if (this.containsKey(key)) {
                     HashNode<K, V> node = buckets.get(index).remove(key);
+                    
                     if (node == null) {
-                        System.out.println("logic error - in containsKey(K)");
+                        System.out.println("whoops somethings wrong");
                         return null;
                     }
                     else {
@@ -206,7 +208,7 @@ class MyHashTable<K, V> {
                 if (this.containsKey(key)) {
                     HashNode<K, V> node = buckets.get(index).remove(key);
                     if (node == null) {
-                        System.out.println("logic error - in containsKey(K)");
+                        System.out.println("whoops somethings wrong");
                         return null;
                     }
                     else {
